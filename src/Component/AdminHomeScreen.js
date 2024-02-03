@@ -99,7 +99,7 @@ function AdminHomeScreen() {
           </div>
         </div>
 
-        {/* <div className="d-flex justify-content-center mt-5" style={buttonContainerMargin}>
+        <div className="d-flex justify-content-center mt-5" style={buttonContainerMargin}>
           <div style={buttonContainerStyle}>
             <Link to='/AdminOngoingRemarks'>
               <Button variant="primary" style={buttonStyle}>
@@ -107,7 +107,7 @@ function AdminHomeScreen() {
               </Button>
             </Link>
           </div>
-        </div> */}
+        </div>
 
         <div className="d-flex justify-content-center mt-5" style={buttonContainerMargin}>
           <div style={buttonContainerStyle}>

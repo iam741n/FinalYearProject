@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_IP } from './Url';
 import { CiStickyNote } from 'react-icons/ci';
+//import { Container, Table, Button, Modal, Form, Dropdown } from 'react-bootstrap';
 
 const AdminRemarksScreen = () => {
   const [remarksData, setRemarksData] = useState([]);

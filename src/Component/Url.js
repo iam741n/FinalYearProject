@@ -1,1 +1,1 @@
-export const API_IP ="192.168.46.73"
+export const API_IP ="192.168.100.7"

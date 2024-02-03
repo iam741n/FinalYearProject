@@ -34,6 +34,10 @@ const [groupInfo, setGroupInfo] = useState(null);
 const [selectedGroupMembers, setSelectedGroupMembers] = useState([]);
 const [selectedDate, setSelectedDate] = useState(new Date("2024-01-18"));
 
+const [showDelayPopup, setShowDelayPopup] = useState(false);
+const [selectedProjectId, setSelectedProjectId] = useState(null);
+const [selectedProjectName, setSelectedProjectName] = useState('');
+
 
 
 useEffect(() => {
@@ -420,6 +424,16 @@ return [...prevSelected, studentId];
 });
 };
 
+const handleDelayPopupOpen = (projectId, projectName) => {
+  setSelectedProjectId(projectId);
+  setSelectedProjectName(projectName);
+  setShowDelayPopup(true);
+};
+
+const handleDelayPopupClose = () => {
+  setShowDelayPopup(false);
+};
+
 
 return (
 <Container>
@@ -508,8 +522,38 @@ onChange={(date) => setSelectedDate(date)}
 dateFormat="yyyy-MM-dd"
 />
 <Link to='/QueueHandlerMeetingsDone'>
-{/* <Button variant="primary">Meetings Done</Button> */}
+<Button variant="primary">Meetings Done</Button>
 </Link>
+ {/* Render the DelayPopup directly within QueueHandler component */}
+ <Modal show={showDelayPopup} onHide={handleDelayPopupClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Relegate Meeting</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="projectName">
+              <Form.Label>Project Name</Form.Label>
+              <Form.Control type="text" value={selectedProjectName} readOnly />
+            </Form.Group>
+            <Form.Group controlId="delayTime">
+              <Form.Label>Select Time to Delay</Form.Label>
+              {/* Use your preferred time picker component here */}
+              <Form.Control
+                type="time"
+                onChange={(e) => setSelectedTime(e.target.value)}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleDelayPopupClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => handleDelayMeeting(selectedProjectId, selectedTime)}>
+            Delay
+          </Button>
+        </Modal.Footer>
+      </Modal>
 {/* Gender Popup */}
 <Modal show={showGenderPopup} onHide={() => setShowGenderPopup(false)}>
   <Modal.Header closeButton>
@@ -577,6 +621,7 @@ Submit
 <th>Project Name</th>
 <th>Time Left</th>
 <th>Action</th>
+<th>Relegate</th>
 </tr>
 </thead>
 <tbody>
@@ -595,6 +640,11 @@ meetingSchedule.map((row, index) => (
 <td>
 <Button variant="success" onClick={() => handleProcessClick(row.g_id)}>
 Process
+</Button>
+</td>
+<td>
+<Button variant="info" onClick={() => handleDelayPopupOpen(row.g_id)}>
+Relegate
 </Button>
 </td>
 </tr>
