@@ -40,6 +40,14 @@ function StudentHomeScreen() {
           </div>
         </div>
 
+        <div className="d-flex justify-content-center mt-5" style={buttonContainerMargin}>
+          <div style={buttonContainerStyle}>
+            <Link to='/StudentSchedule'>
+            <Button variant="primary" style={buttonStyle}>Group Meeting</Button>
+            </Link>
+          </div>
+        </div>
+
         {/* Logout Button (Navigate to the login screen) */}
       {/*   <div className="d-flex justify-content-center mt-5" style={buttonContainerMargin}>
           <div style={buttonContainerStyle}>

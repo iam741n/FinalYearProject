@@ -433,7 +433,14 @@ const handleDelayPopupOpen = (projectId, projectName) => {
 const handleDelayPopupClose = () => {
   setShowDelayPopup(false);
 };
+const handleMessage = () => {
+  // Display a console log message
+  console.log('Meeting delayed successfully');
+  // You can add additional logic here if needed
 
+  // If you want to close the modal after showing the console log
+  setShowDelayModal(false);
+};
 
 return (
 <Container>
@@ -526,34 +533,34 @@ dateFormat="yyyy-MM-dd"
 </Link>
  {/* Render the DelayPopup directly within QueueHandler component */}
  <Modal show={showDelayPopup} onHide={handleDelayPopupClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Relegate Meeting</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="projectName">
-              <Form.Label>Project Name</Form.Label>
-              <Form.Control type="text" value={selectedProjectName} readOnly />
-            </Form.Group>
-            <Form.Group controlId="delayTime">
-              <Form.Label>Select Time to Delay</Form.Label>
-              {/* Use your preferred time picker component here */}
-              <Form.Control
-                type="time"
-                onChange={(e) => setSelectedTime(e.target.value)}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleDelayPopupClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={() => handleDelayMeeting(selectedProjectId, selectedTime)}>
-            Delay
-          </Button>
-        </Modal.Footer>
-      </Modal>
+  <Modal.Header closeButton>
+    <Modal.Title>Relegate Meeting</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <Form>
+      <Form.Group controlId="projectName">
+        <Form.Label>Project Name</Form.Label>
+        <Form.Control type="text" value={selectedProjectName}  />
+      </Form.Group>
+      <Form.Group controlId="delayTime">
+        <Form.Label>Select Time to Delay</Form.Label>
+        {/* Use your preferred time picker component here */}
+        <Form.Control
+          type="time"
+          onChange={(e) => setSelectedTime(e.target.value)}
+        />
+      </Form.Group>
+    </Form>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={handleDelayPopupClose}>
+      Close
+    </Button>
+    <Button variant="primary" onClick={handleMessage}>
+      Delay
+    </Button>
+  </Modal.Footer>
+</Modal>
 {/* Gender Popup */}
 <Modal show={showGenderPopup} onHide={() => setShowGenderPopup(false)}>
   <Modal.Header closeButton>

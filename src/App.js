@@ -23,6 +23,10 @@ import AdminRemarksScreen from './Component/AdminRemarksScreen';
 import AdminOngoingRemarks from './Component/AdminOngoingRemarks'; 
 import QueueHandlerMeetingsDone from './Component/QueueHandlerMeetingsDone';
 import SupervisorMeetingHistory from './Component/SupervisorMeeetingHistory';
+import SupervisorGroupSchedule from './Component/SupervisorGroupSchedule';
+import StudentSchedule from './Component/StudentSchedule';
+import SupervisorArrangeMeeting from './Component/SupervsiorArrangeMeeting';
+import Login2 from './Component/Login2';
 
 function App() {
   return (
@@ -53,6 +57,10 @@ function App() {
         <Route path="/AdminOngoingRemarks" element={<AdminOngoingRemarks />} />
         <Route path="/QueueHandlerMeetingsDone" element={<QueueHandlerMeetingsDone />} />
         <Route path="/SupervisorMeetingHistory" element={<SupervisorMeetingHistory />} />
+        <Route path="/SupervisorGroupSchedule" element={<SupervisorGroupSchedule />} />
+        <Route path="/StudentSchedule" element={<StudentSchedule />} />
+        <Route path="/SupervisorArrangeMeeting" element={<SupervisorArrangeMeeting />} />
+        <Route path="/Login2" element={<Login2 />} />
         {/* Add more routes as needed */} 
       </Routes>
     {/* </ApiContext.Provider> */}

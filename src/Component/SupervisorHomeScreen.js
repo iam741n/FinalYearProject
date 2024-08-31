@@ -60,6 +60,22 @@ function SupervisorHomeScreen() {
           </div>
         </div>
         
+
+        <div className="d-flex justify-content-center mt-5" style={buttonContainerMargin}>
+          <div style={buttonContainerStyle}>
+          <Link to='/SupervisorGroupSchedule'>
+            <Button variant="primary" style={buttonStyle}>Group Schedule</Button>
+            </Link>
+          </div>
+        </div>
+        
+        <div className="d-flex justify-content-center mt-5" style={buttonContainerMargin}>
+          <div style={buttonContainerStyle}>
+          <Link to='/SupervisorArrangeMeeting'>
+            <Button variant="primary" style={buttonStyle}>Arrange Meeting</Button>
+            </Link>
+          </div>
+        </div>
         {/* You can add more content here */}
         
       </div>
