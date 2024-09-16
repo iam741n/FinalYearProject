@@ -74,7 +74,7 @@ const Login = () => {
   //backgroundColor: '#004f83'
 
   return (
-    <div style={{ backgroundImage:`url(${require('../assets/Book.jpg')})`,backgroundSize:'cover',backgroundPosition:'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ backgroundImage:`url(${require('../assets/Grad.jpg')})`,backgroundSize:'cover',backgroundPosition:'center', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <h1 className="text-center mt-4" style={{ color: 'Black', fontFamily: 'Arial, sans-serif', fontSize: '2.5rem', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', fontWeight: 'bold' }}>BIIT Project Waiting Queue</h1>
     
   
